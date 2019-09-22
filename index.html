@@ -166,7 +166,9 @@
 <p><strong>使用示例</strong></p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">AlarmManager aManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);</span><br><span class="line">        Intent <span class="keyword">in</span> = <span class="keyword">new</span> Intent();</span><br><span class="line">        <span class="keyword">in</span>.setClass(context, RebootService.class);</span><br><span class="line">        PendingIntent pi = PendingIntent.getService(context, <span class="number">0</span>, <span class="keyword">in</span>, <span class="number">0</span>);</span><br><span class="line">        aManager.<span class="keyword">set</span>(AlarmManager.ELAPSED_REALTIME_WAKEUP,<span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>, pi);</span><br></pre></td></tr></table></figure>
 <p>上面的例子是通过alarmmanager来执行一个服务，定时到了就会自动执行RebootService这个服务。</p>
-<p></p>
+<p><img src="/2019/09/22/Alarm简介/1.png" alt=""></p>
+<p><img src="/2019/09/22/Alarm简介/Users\z\AppData\Roaming\Typora\typora-user-images\1569064049192.png" alt="1569064049192"></p>
+<p>上面是DeviceIdleController中对Alarm的使用方式，mDeepAlarmListener就是传入的回调，回调方法是onAlarm.</p>
         
           <a class="article-more-a" href="/2019/09/22/Alarm简介/#more">more >></a>
         

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="心升明月-李健">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        cgroup - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 飞鸟归山林 落日入东海；海上升明月 已尽收眼底 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>zzzyang</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Cgroup简介"><span class="toc-text">1 Cgroup简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-如何查看当前系统支持哪些subsystem"><span class="toc-text">1.1 如何查看当前系统支持哪些subsystem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-查看进程的cgroup情况"><span class="toc-text">1.2 查看进程的cgroup情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-cgroup的挂载"><span class="toc-text">1.3 cgroup的挂载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-管理单位"><span class="toc-text">1.4 管理单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-cgroup清理release-agent"><span class="toc-text">1.5 cgroup清理release_agent</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-规则"><span class="toc-text">2 规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-原理"><span class="toc-text">3 原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-使用"><span class="toc-text">4 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-限制cgroup内存使用"><span class="toc-text">4.1 限制cgroup内存使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-限制cpu的使用"><span class="toc-text">4.2 限制cpu的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-schedtune限制"><span class="toc-text">4.3 schedtune限制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-1-拓展知识进程调度"><span class="toc-text">4.3.1 拓展知识进程调度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-2-schedtune"><span class="toc-text">4.3.2 schedtune</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 飞鸟归山林 落日入东海；海上升明月 已尽收眼底 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        cgroup
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2019-10-04 23:35:45</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#cgroup" title="cgroup">cgroup</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#cpuset" title="cpuset">cpuset</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#linux" title="linux">linux</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <blockquote>
+<p>本文目的，仅用于自己梳理cgroup学习过程中整理的网络资料笔记，内容均来自网络。</p>
+<p><a href="https://www.kernel.org/doc/Documentation/cgroup-v1/cgroups.txt" target="_blank" rel="noopener">https://www.kernel.org/doc/Documentation/cgroup-v1/cgroups.txt</a></p>
+<p><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1570251437&amp;ver=1893&amp;signature=FIRTH40wSQODMcoT7tS82w12uiBs*eQlDbu*RmlS5n1dmQSQ4-pKUIKnVXoRR2hmSh1jl2CfGYsfHdoWqA*Ib2I-tBYtybLgp7H2xwzlnWK3R5on2TYWBXmuiyWksEtt&amp;new=1" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?src=11&amp;timestamp=1570251437&amp;ver=1893&amp;signature=FIRTH40wSQODMcoT7tS82w12uiBs*eQlDbu*RmlS5n1dmQSQ4-pKUIKnVXoRR2hmSh1jl2CfGYsfHdoWqA*Ib2I-tBYtybLgp7H2xwzlnWK3R5on2TYWBXmuiyWksEtt&amp;new=1</a></p>
+<p><a href="https://www.yangcs.net/posts/understanding-cgroups-part-1-basics/" target="_blank" rel="noopener">https://www.yangcs.net/posts/understanding-cgroups-part-1-basics/</a></p>
+</blockquote>
+<p>从下面几个方面进行整理：</p>
+<ul>
+<li>Cgroup简介</li>
+<li>subsystem的attach规则</li>
+<li>实现原理</li>
+</ul>
+<h2 id="1-Cgroup简介"><a href="#1-Cgroup简介" class="headerlink" title="1 Cgroup简介"></a>1 Cgroup简介</h2><p>Cgroup（Control Groups）是这样一种机制：它以分组的形式对进程使用系统资源的行为进行管理和控制。也就是说，用户通过cgroup对所有进程进行分组，再对该分组整体进行资源的分配和控制。</p>
+<p>系统内所有的进程组形成一颗具有层次等级（hierarchy）关系的进程组树。如下图</p>
+<p><img src="1.jpg" alt=""></p>
+<ul>
+<li>同一个进程可能处于多个进程组中，但是必须是位于不同的层级中</li>
+<li>子进程在创建初期与父进程位于同一个进程组中</li>
+</ul>
+<p><strong>subsystem</strong></p>
+<p>​    子系统是cgroup对进程组进行资源控制的具体行为.</p>
+<blockquote>
+<ol>
+<li><p>cpu子系统：该子系统为每个进程组设置一个使用CPU的权重值，以此来管理进程对cpu的访问。</p>
+</li>
+<li><p>cpuset子系统：对于多核cpu，该子系统可以设置进程组只能在指定的核上运行，并且还可以设置进程组在指定的内存节点上申请内存。</p>
+</li>
+<li><p>cpuacct子系统：该子系统只用于生成当前进程组内的进程对cpu的使用报告。</p>
+</li>
+<li><p>memory子系统：该子系统提供了以页面为单位对内存的访问，比如对进程组设置内存使用上限等，同时可以生成内存资源报告</p>
+</li>
+<li><p>blkio子系统：该子系统用于限制每个块设备的输入输出。首先，与CPU子系统类似，该系统通过为每个进程组设置权重来控制块设备对其的I/O时间；其次，该子系统也可以限制进程组的I/O带宽以及IOPS。</p>
+</li>
+<li><p>devices子系统：通过该子系统可以限制进程组对设备的访问，即该允许或禁止进程组对某设备的访问。</p>
+</li>
+<li><p>freezer子系统：该子系统可以使得进程组中的所有进程挂起。</p>
+</li>
+<li><p>net-cls子系统：该子系统提供对网络带宽的访问限制，比如对发送带宽和接收带宽进程限制</p>
+</li>
+</ol>
+</blockquote>
+<p>子系统与cgroup的关系</p>
+<p><img src="1.1.jpg" alt=""></p>
+<p>由图可以看出，cgroup在用户态提供统一的用户接口，而每个子系统对资源的控制功能则通过其钩子函数实现。这样使得cgroup在上层是一个统一的框架，而下层则可以实现多种资源的控制。每个子系统的钩子函数如下:</p>
+<p><img src="1.2.jpg" alt=""></p>
+<p><strong>文件系统</strong></p>
+<p>cgroup在Linux内核中是以文件系统的形式存在的，不过cgroup对应的这种文件系统与proc文件系统类似，都是只存在于内存中的“虚拟”文件系统。既然如此，就可以通过mount命令创建一个cgroup实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mount -t cgroup -o memory memory_cgroup /dev/cgroup/</span><br></pre></td></tr></table></figure>
+<p>即在/dev/cgroup/下创建了一个memory子系统。接下来就可以通过：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat /proc/filesystems | grep cgroup</span><br></pre></td></tr></table></figure>
+<p>可看到系统有了cgroup类型的文件系统。<br>当创建了一个cgroup实例后，对应的挂载点下会有一些文件，这些文件是用户与cgroup进行交互的接口。由于cgroup位于VFS层之下，因此用户可以通过统一的文件操作接口去读取或设置子系统的参数，当然也可以直接使用echo或者cat等命令。</p>
+<p><strong>cpu子系统</strong></p>
+<p>cpu子系统主要分布在内核的调度系统中，通过该子系统中的cpu.shares文件可对进程组设置权重。<br>根据CFS的原理，一个进程的权重越大，那么它的被调度的可能性就越大。那么进程组的权重如何在CFS中体现？CFS将进程和进程组视为同一个调度体，并用sched_entity结构来表示，每个结构中包含该调度体的权重以及虚拟运行时间等。<br>因此，用户可通过CPU子系统中的cpu.shares文件来控制进程组对CPU的使用。</p>
+<p><strong>cpuset子系统</strong></p>
+<p>​    通过cpuset子系统中的cpuset.cpus和cpuset.mems可对进程组设定可访问的CPU和内存节点。内核使用cpuset结构来描述cpuset子系统的属性信息，其中该结构中的cpus_allowed和mems_allowed两个字段分别保存上述两个文件的值。同时，进程描述符中也有cpus_allowed和mems_allowed两个字段，其值与cpuset结构保持同步。</p>
+<p>​    cpuset限制进程所能访问的CPU主要通过两方面。首先体现在进程的创建，如果父进程新建子进程时没有指定CLONE_STOPPED标志，则父进程将调用wake_up_new_task()将子进程状态设置为TASK_RUNNING，并将其加入就绪队列。为子进程选择就绪队列的具体工作则由select_task_rq()完成，其内部实现将涉及CPU的检查操作，即在cpus_allowed所指定的cpu范围内为当前进程分配CPU。</p>
+<p>​    其次，当调度器在调度一个进程时，也要通过select_task_rq()进行同样的对比选择。这样就可以保证cgroup实例中的进程只在cpus_allowed所限定的cpu中运行。</p>
+<p>​    cpuset进程所能访问内存节点的限制表现在物理内存的分配过程中。Linux内核将物理内存在逻辑上分为<strong>node、zone和page</strong>，内核通过alloc_pages()来实现物理内存的分配工作。alloc_pages()的主要工作是在所有物理内存中选择node，再在当前node中选择zone，最终在zone中分配一个物理页框。其中，在选择node的过程中会进行mems_allowed的判断过程。</p>
+<p><strong>memory子系统</strong></p>
+<pre><code>cgroup对内存的控制通过memory子系统完成，其控制作用主要体现在对内存使用量的限制，同时为当前cgroup生成一份内存使用情况报告。
+</code></pre><p>​    在具体实现的过程中，cgroup通过内核中的resource counter机制实现内存的限制。resource counter相当于一个通用的资源计数器，在内核中通过res_counter结构来描述。该结构可用于记录某类资源的当前使用量、最大使用量以及上限等信息。</p>
+<p>​    内核对res_counter进行操作时有三个基本函数：res_counter_init()对res_counter进行初始化；当分配资源时，res_counter_charge()记录资源的使用量，并且该函数还会检查使用量是否超过了上限，并且记录当前资源使用量的最大值；当资源被释放时，res_counter_uncharge()则减少该资源的使用量。</p>
+<p>​    cgroup对内存资源的限制主要是<strong>将上述三个函数分布到内存的分配单元</strong>中，比如，系统发生<strong>缺页异常</strong>时，由于<strong>页表项未分配而申请内存时</strong>，由于<strong>页缓存而分配内存</strong>等。</p>
+<p><strong>blkio子系统</strong></p>
+<p>​    Cgroup中通过blkio子系统完成对块设备I/O的控制。具体的控制主要通过<strong>blkio.weight</strong>文件在用户态设定当前进程组访问块<strong>I/O的权重</strong>，也就是控制进程组占有<strong>I/O的时间</strong>。</p>
+<p>​    blkio子系统对块I/O的控制代码主要分布在I/O调度算法中，目前内核中默认的调度算法为<strong>CFQ（完全公平队列）</strong>，该算法与进程调度算法CFS比较类似。</p>
+<h3 id="1-1-如何查看当前系统支持哪些subsystem"><a href="#1-1-如何查看当前系统支持哪些subsystem" class="headerlink" title="1.1 如何查看当前系统支持哪些subsystem"></a>1.1 如何查看当前系统支持哪些subsystem</h3><blockquote>
+<p>以下内容来自：<a href="https://segmentfault.com/a/1190000006917884" target="_blank" rel="noopener">https://segmentfault.com/a/1190000006917884</a></p>
+</blockquote>
+<p>以下是手机中cat /proc/cgroups节点的输出信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#subsys_name    hierarchy       num_cgroups     enabled</span><br><span class="line">cpuset              5                7             1</span><br><span class="line">cpu                 4                1             1</span><br><span class="line">cpuacct             1               188            1</span><br><span class="line">schedtune           3                5             1</span><br><span class="line">memory              2                3             1</span><br><span class="line">freezer             0                1             1</span><br></pre></td></tr></table></figure>
+<p>subsys_name:子系统的名字</p>
+<p>hierarchy: 层级的ID</p>
+<p>num_cgroups：层级中有的cgroup节点数量</p>
+<p>enabled: 是否使能</p>
+<h3 id="1-2-查看进程的cgroup情况"><a href="#1-2-查看进程的cgroup情况" class="headerlink" title="1.2 查看进程的cgroup情况"></a>1.2 查看进程的cgroup情况</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">2|XXX:/proc/4655 # cat cgroup</span><br><span class="line">6:name=none:/</span><br><span class="line">5:cpuset:/background</span><br><span class="line">4:cpu:/</span><br><span class="line">3:schedtune:/background</span><br><span class="line">2:memory:/</span><br><span class="line">1:cpuacct:/uid_1000/pid_4655</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-cgroup的挂载"><a href="#1-3-cgroup的挂载" class="headerlink" title="1.3 cgroup的挂载"></a>1.3 cgroup的挂载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 挂载memory子系统到/dev/cgroup</span><br><span class="line">sudo mount -t cgroup -o memory memory_cgroup /dev/cgroup/</span><br><span class="line"></span><br><span class="line"># 挂载所有子系统到/dev/all</span><br><span class="line">sudo mount -t cgroup all /dev/all</span><br><span class="line"></span><br><span class="line"># 挂载一个cgroup树，不关联任何子系统</span><br><span class="line">sudo mount -t cgroup -o none,name=none none /dev/none</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：</p>
+<ul>
+<li>第一次挂载一颗和指定subsystem关联的cgroup树时，会创建一颗新的cgroup树，当再一次用<strong>同样的参数挂载时</strong>，会重用现有的cgroup树，<strong>也即两个挂载点看到的内容是一样的。</strong></li>
+<li><strong>挂载一颗cgroup树时，可以指定多个subsystem与之关联，但一个subsystem只能关联到一颗cgroup树</strong>，一旦关联并在这颗树上创建了子cgroup，subsystems和这棵cgroup树就成了一个整体，不能再重新组合。</li>
+<li><strong>可以创建任意多个不和任何subsystem关联的cgroup树，name是这棵树的唯一标记，当name指定的是一个新的名字时，将创建一颗新的cgroup树，</strong>但如果内核中已经存在一颗一样name的cgroup树，那么将mount已存在的这颗cgroup树</li>
+</ul>
+<h3 id="1-4-管理单位"><a href="#1-4-管理单位" class="headerlink" title="1.4 管理单位"></a>1.4 管理单位</h3><p><strong>cgroup.procs vs tasks的区别</strong>： procs表示的是进程的ID， tasks表示的线程ID，</p>
+<p>更加tasks可以进行更加细粒度的控制。</p>
+<p><strong>但在cgroup V2以后，将不再支持该功能，只能以进程为单位来配置cgroup</strong></p>
+<h3 id="1-5-cgroup清理release-agent"><a href="#1-5-cgroup清理release-agent" class="headerlink" title="1.5 cgroup清理release_agent"></a>1.5 cgroup清理release_agent</h3><p><a href="https://segmentfault.com/a/1190000007241437" target="_blank" rel="noopener">https://segmentfault.com/a/1190000007241437</a></p>
+<h2 id="2-规则"><a href="#2-规则" class="headerlink" title="2 规则"></a>2 规则</h2><blockquote>
+<p>以下内容来源：<a href="https://sexywp.com/whats-cgroups.htm" target="_blank" rel="noopener">https://sexywp.com/whats-cgroups.htm</a></p>
+</blockquote>
+<p><img src="2.1.jpg" alt=""></p>
+<p>一个层次结构，可以附着一个或者多个子系统（来源 RedHat）</p>
+<p><img src="2.2.jpg" alt=""></p>
+<p>一个子系统不能附着第二个已经附着过子系统的层次结构</p>
+<p><img src="2.3.jpg" alt=""></p>
+<p>一个任务不能是同一个层次结构下的不同控制组的成员</p>
+<p><img src="2.4.jpg" alt=""></p>
+<p>fork 出来的进程严格继承父进程的控制组</p>
+<h2 id="3-原理"><a href="#3-原理" class="headerlink" title="3 原理"></a>3 原理</h2><p><a href="https://mp.weixin.qq.com/s?__biz=MzI3NzA5MzUxNA==&amp;mid=407106165&amp;idx=1&amp;sn=394d236027c2475178018162f51fcc4a&amp;scene=19#wechat_redirect" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzI3NzA5MzUxNA==&amp;mid=407106165&amp;idx=1&amp;sn=394d236027c2475178018162f51fcc4a&amp;scene=19#wechat_redirect</a></p>
+<p><a href="https://www.cnblogs.com/yjf512/p/6003094.html" target="_blank" rel="noopener">https://www.cnblogs.com/yjf512/p/6003094.html</a></p>
+<p><img src="3.1.jpg" alt=""></p>
+<p><img src="3.2.jpg" alt=""></p>
+<p><img src="3.3.jpg" alt=""></p>
+<h2 id="4-使用"><a href="#4-使用" class="headerlink" title="4 使用"></a>4 使用</h2><h3 id="4-1-限制cgroup内存使用"><a href="#4-1-限制cgroup内存使用" class="headerlink" title="4.1 限制cgroup内存使用"></a>4.1 限制cgroup内存使用</h3><blockquote>
+<p>参考</p>
+<p><a href="https://segmentfault.com/a/1190000008125359" target="_blank" rel="noopener">https://segmentfault.com/a/1190000008125359</a></p>
+</blockquote>
+<p>在Android中有会用到cgroup来限制内存的使用挂载为memcg</p>
+<p><strong>目的</strong>： 限制一组进程的内存用量及内存使用情况控制。</p>
+<p><strong>功能</strong>    </p>
+<ul>
+<li>限制cgroup中所有进程使用内存的总量</li>
+<li>限制cgroup中所有进程能够使用的物理内存和交换空间<strong>CONFIG_MEMCG_SWAP</strong>总量</li>
+<li>限制cgroup中所有进的使用的内核内存总量及其他内核资源<strong>CONFIG_MEMCG_KMEM</strong></li>
+</ul>
+<p><strong>内核配置</strong></p>
+<ul>
+<li>memory subsystem消耗系统资源，可以单独配置关闭该子系统。cgroup_disable=memory</li>
+<li>CONFIG_MEMCG_SWAP, CONFIG_MEMCG_KMEM</li>
+</ul>
+<blockquote>
+<p>CONFIG_MEMCG_SWAP</p>
+<p>给 Memory Resource Controller 添加对swap的管理功能.这样就可以针对每个cgroup限定其使用的mem+swap总量.如果关闭此选项, memory resource controller 将仅能限制mem的使用量,而无法对swap进行控制(进程有可能耗尽swap).开启此功能会对性能有不利影响,并且为了追踪swap的使用也会消耗更多的内存(如果swap的页面大小是4KB,那么每1GB的swap需要额外消耗512KB内存),所以在内存较小的系统上不建议开启.</p>
+<p>CONFIG_MEMCG_KMEM</p>
+<p>为 Memory Resource Controller 添加对内核对象所占用内存的管理功能.和标准的 Memory Resource Controller 对内存的控制不一样之处在于:这些内核对象所占用的内存是基于每个内存页的,并且可以被swap到硬盘.使用这个功能可以确保cgroup中的进程不会单独耗尽所有内核资源</p>
+</blockquote>
+<p><strong>配置节点参数含义</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cgroup.event_control       #用于eventfd的接口</span><br><span class="line">memory.usage_in_bytes      #显示当前已用的内存</span><br><span class="line">memory.limit_in_bytes      #设置/显示当前限制的内存额度</span><br><span class="line">memory.failcnt             #显示内存使用量达到限制值的次数</span><br><span class="line">memory.max_usage_in_bytes  #历史内存最大使用量</span><br><span class="line">memory.soft_limit_in_bytes #设置/显示当前限制的内存软额度</span><br><span class="line">memory.stat                #显示当前cgroup的内存使用情况</span><br><span class="line">memory.use_hierarchy       #设置/显示是否将子cgroup的内存使用情况统计到当前cgroup里面</span><br><span class="line">memory.force_empty         #触发系统立即尽可能的回收当前cgroup中可以回收的内存</span><br><span class="line">memory.pressure_level      #设置内存压力的通知事件，配合cgroup.event_control一起使用</span><br><span class="line">memory.swappiness          #设置和显示当前的swappiness</span><br><span class="line">memory.move_charge_at_immigrate #设置当进程移动到其他cgroup中时，它所占用的内存是否也随着移动过去</span><br><span class="line">memory.oom_control         #设置/显示oom controls相关的配置</span><br><span class="line">memory.numa_stat           #显示numa相关的内存</span><br></pre></td></tr></table></figure>
+<p> <strong>拓展阅读：</strong></p>
+<p>（<a href="https://www.cnblogs.com/arnoldlu/p/6221609.html" target="_blank" rel="noopener">Android中基于CGroup的memory子系统HAL层分析-lmkd</a>）</p>
+<p><a href="https://www.cnblogs.com/arnoldlu/p/6221609.html" target="_blank" rel="noopener">https://www.cnblogs.com/arnoldlu/p/6221609.html</a> </p>
+<h3 id="4-2-限制cpu的使用"><a href="#4-2-限制cpu的使用" class="headerlink" title="4.2 限制cpu的使用"></a>4.2 限制cpu的使用</h3><p>cpu相关的限制子系统有cpu, cpuset, cpuacct</p>
+<p>cpu子系统控制节点</p>
+<ul>
+<li><p>cpu.cfs_period_us，配置时间的周期长度（us）</p>
+</li>
+<li><p>cpu.cfs_quota_us， 配置周期长度内能够使用cpu时间数（us）</p>
+</li>
+<li>cpu.shares， 设置cpu的相对值（默认1024）</li>
+<li>cpu.stat, 统计数据 nr_periods，过去了多少个周期； nr_throttled，有多少受到了限制； throttled_time， 被限制cpu持续了多长时间</li>
+</ul>
+<h3 id="4-3-schedtune限制"><a href="#4-3-schedtune限制" class="headerlink" title="4.3 schedtune限制"></a>4.3 schedtune限制</h3><p>schedtune是ARM/Linaro为了EAS新增的一个子系统，主要用来控制进程调度选择CPU以及boost触发。</p>
+<h4 id="4-3-1-拓展知识进程调度"><a href="#4-3-1-拓展知识进程调度" class="headerlink" title="4.3.1 拓展知识进程调度"></a>4.3.1 拓展知识进程调度</h4><p><strong>调度</strong>：从进程的就绪队列中选择合适的进程分配cpu资源运行。</p>
+<p><strong>进程分类</strong>：</p>
+<ul>
+<li>CPU消耗型</li>
+<li>IO消耗型</li>
+</ul>
+<p><strong>进程优先级</strong>：（比如根据进程的优先级进行调度，优先级高的先运行）</p>
+<p><img src="4.1.jpg" alt=""></p>
+<ul>
+<li>静态优先级： 不会时间而改变，内核也不会修改，只能通过系统调用改变nice值的方法区修改。优先级映射公式： <code>static_prio = MAX_RT_PRIO + nice + 20</code>，其中MAX_RT_PRIO = 100，那么取值区间为<strong>[100, 139]</strong>；对应普通进程；</li>
+<li>实时优先级：只对实时进程有意义，取值区间为[0, MAX_RT_PRIO -1]，其中MAX_RT_PRIO = 100，那么取值区间为<strong>[0, 99]</strong>；对应实时进程；</li>
+<li>动态优先级： 调度程序通过增加或减少进程静态优先级的值，来达到奖励IO消耗型或惩罚cpu消耗型的进程，调整后的进程称为动态优先级。区间范围[0, MX_PRIO-1]，其中MX_PRIO = 140，那么取值区间为<strong>[0,139]</strong>；</li>
+</ul>
+<p>nice∈[-20, 19]，可通过adb直接修改某个进程的nice值： <code>renice prio pid</code></p>
+<p><strong>时间片</strong>：</p>
+<p>​    进程在被抢占和调度前所能持续运行的时间。</p>
+<p>​    早期的Linux内核采用固定的时间片，现在的CFS调度器采用根据进程权重来分配cpu时间（权重与优先级有关）</p>
+<p><strong>调度算法</strong></p>
+<ul>
+<li>多级反馈队列调度算法</li>
+</ul>
+<blockquote>
+<p>1 根据优先级划分不同的队列</p>
+<p>2 进程A优先级大于进程B优先级，则调度器选择A</p>
+<p>3 如果A与B优先级一样，且在同一个队列，则使用轮转调度算法</p>
+<p>4 新进程放入最高优先级队列</p>
+<p>5 当一个进程吃满了时间片，说明是一个cpu消耗型，那么需要将此进程优先级降一级，迁移到低一级的队列里。</p>
+<p>6 如果进程在时间片还没有结束前放弃cpu，说明是IO消耗型，保持原来的高优先级。</p>
+</blockquote>
+<p>缺点， 容易<strong>产生饥饿</strong>；有些进程会<strong>欺骗调度器</strong>；进程生命中有时候是cpu消耗型，有时候是io消耗型，很难区分。</p>
+<blockquote>
+<p>改进：</p>
+<p>​    （解决饥饿问题），每个时间周期S，把系统中所有进程优先级提到最高。</p>
+<p>​    （解决欺骗），当一个进程时间片用完，不管是否在末尾发生io请求，都把优先级降一级。</p>
+</blockquote>
+<ul>
+<li>Linux O(n)调度算法</li>
+</ul>
+<p>全局就绪队列（链表），从就绪队列中选择最佳就绪进程（基于优先级）运行，赋予固定的时间片。使用完后选择下一个进程。</p>
+<ul>
+<li>Linux O(1)调度算法</li>
+</ul>
+<p>基于多级反馈算法的变种。</p>
+<p>就绪队列分为两个优先级数组组成。活跃优先级数组，过期优先级数组。每个优先级数组包含140个优先级队列。</p>
+<p>当活跃数组的所有进程用完了时间片后，活跃数组和过期数组互换。</p>
+<ul>
+<li>Linux CFS调度算法</li>
+</ul>
+<h4 id="4-3-2-schedtune"><a href="#4-3-2-schedtune" class="headerlink" title="4.3.2 schedtune"></a>4.3.2 schedtune</h4><p>schedtune，是ARM/Linaro为了EAS新增的一个子系统，主要用来控制进程调度选择CPU以及boost触发，连接在 Android 系统的 /dev/stune 层级结构上。</p>
+<p>EAS旨在以最小的功耗来获得最流畅的UI。这是其他外部组件（如schedtune）发挥作用的地方。</p>
+<p>Schedtune在每个cgroup中由两个可调参数定义，以确保更好地控制要完成的任务。它不仅可以控制多个CPU上任务的分散，还可以控制感知负载，以确保更快地完成对时间敏感的任务。这样，用户所使用的前台应用程序和服务将不会减慢并导致不必要的性能问题。</p>
+<p><strong>拓展阅读</strong></p>
+<p><a href="https://www.cnblogs.com/arnoldlu/p/6221608.html" target="_blank" rel="noopener">Android中关于cpu/cpuset/schedtune的应用</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/60030839" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/60030839</a> EAS调度器缘起</p>
+<p><a href="https://zhuanlan.zhihu.com/p/81668069" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/81668069</a> cgroup浅谈</p>
+<p><a href="https://android.googlesource.com/kernel/common/+/android-4.14/Documentation/scheduler/sched-tune.txt" target="_blank" rel="noopener">https://android.googlesource.com/kernel/common/+/android-4.14/Documentation/scheduler/sched-tune.txt</a></p>
+<p><strong>schedtune.prefer_idle</strong>：调度cpu选择的倾向，更偏重性能还是功耗。</p>
+<blockquote>
+<p>This is a flag which indicates to the scheduler that userspace would like<br>the scheduler to focus on energy or to focus on performance.</p>
+<p>A value of 0 (default) signals to the CFS scheduler that tasks in this group<br>can be placed according to the energy-aware wakeup strategy.<br>A value of 1 signals to the CFS scheduler that tasks in this group should be<br>placed to minimise wakeup latency.</p>
+<p>Android platforms typically use this flag for application tasks which the<br>user is currently interacting with</p>
+</blockquote>
+<p><strong>schedtune.capacity_min</strong>：</p>
+<p><strong>schedtune.boost</strong>：配置的值越大越偏重性能。使获得更多的cpu资源，更高的频率等。</p>
+<blockquote>
+<p>​    The boost value is expressed as an integer in the range [0..100].</p>
+<p>​    A value of 0 (default) configures the CFS scheduler for maximum energy<br>efficiency. This means that schedutil runs the tasks at the minimum OPP<br>required to satisfy their workload demand.</p>
+<p>​    A value of 100 configures scheduler for maximum performance, which translates to the selection of the maximum OPP on that CPU.</p>
+<p>​    The range between 0 and 100 can be set to satisfy other scenarios suitably. For example to satisfy interactive response or depending on other system events<br>(battery level etc).</p>
+<p>​    The overall design of the SchedTune module is built on top of “Per-Entity Load<br>Tracking” (PELT) signals and schedutil by introducing a bias on the OPP selection.</p>
+<p>​    Each time a task is allocated on a CPU, cpufreq is given the opportunity to tune<br>the operating frequency of that CPU to better match the workload demand. The<br>selection of the actual OPP being activated is influenced by the boost value<br>for the task CGroup.</p>
+<p>​    This simple biasing approach leverages existing frameworks, which means minimal<br>modifications to the scheduler, and yet it allows to achieve a range of<br>different behaviours all from a single simple tunable knob.</p>
+<p>​    In EAS schedulers, we use boosted task and CPU utilization for energy<br>calculation and energy-aware task placement.</p>
+</blockquote>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

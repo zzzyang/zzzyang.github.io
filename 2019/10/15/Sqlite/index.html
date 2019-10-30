@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="心升明月-李健">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Sqlite - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 飞鸟归山林 落日入东海；海上升明月 已尽收眼底 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>zzzyang</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlite"><span class="toc-text">sqlite</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#WAL"><span class="toc-text">WAL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#WAL特点"><span class="toc-text">WAL特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工作原理"><span class="toc-text">工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参数"><span class="toc-text">参数</span></a></li></ol></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 飞鸟归山林 落日入东海；海上升明月 已尽收眼底 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Sqlite
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2019-10-15 21:38:12</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Android" title="Android">Android</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#sqlite" title="sqlite">sqlite</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="sqlite"><a href="#sqlite" class="headerlink" title="sqlite"></a>sqlite</h1><h2 id="WAL"><a href="#WAL" class="headerlink" title="WAL"></a>WAL</h2><h3 id="WAL特点"><a href="#WAL特点" class="headerlink" title="WAL特点"></a>WAL特点</h3><blockquote>
+<p><a href="http://devdoc.net/database/sqlite-3.0.7.2/wal.html" target="_blank" rel="noopener">http://devdoc.net/database/sqlite-3.0.7.2/wal.html</a></p>
+</blockquote>
+<p>The <strong>default</strong> method by which SQLite implements <a href="http://devdoc.net/database/sqlite-3.0.7.2/atomiccommit.html" target="_blank" rel="noopener">atomic commit and rollback</a> is a <strong>[rollback journal</strong>](<a href="http://devdoc.net/database/sqlite-3.0.7.2/lockingv3.html#rollback)" target="_blank" rel="noopener">http://devdoc.net/database/sqlite-3.0.7.2/lockingv3.html#rollback)</a>. Beginning with <a href="http://devdoc.net/database/sqlite-3.0.7.2/releaselog/3_7_0.html" target="_blank" rel="noopener">version 3.7.0</a>, a new “<strong>Write-Ahead Log</strong>“ option (hereafter referred to as “WAL”) is available.</p>
+<p>There are advantages and disadvantages to using WAL instead of a rollback journal. <strong>Advantages</strong> include:</p>
+<ol>
+<li><strong>WAL is significantly faster in most scenarios.</strong> (大多数场景更快)</li>
+<li><strong>WAL provides more concurrency as readers do not block writers and a writer does not block readers. Reading and writing can proceed concurrently.</strong>（读写互不阻塞）</li>
+<li><strong>Disk I/O operations tends to be more sequential using WAL.</strong>（IO连续）</li>
+<li><strong>WAL uses many fewer fsync() operations and is thus less vulnerable to problems on systems where the fsync() system call is broken.</strong>（fsync更少）</li>
+</ol>
+<p><strong>But there are also disadvantages:</strong></p>
+<ol>
+<li>WAL normally requires that the <a href="http://devdoc.net/database/sqlite-3.0.7.2/vfs.html" target="_blank" rel="noopener">VFS</a> support <strong>shared-memory primitives.</strong> (Exception: <a href="http://devdoc.net/database/sqlite-3.0.7.2/wal.html#noshm" target="_blank" rel="noopener">WAL without shared memory</a>) The built-in unix and windows VFSes support this but third-party extension VFSes for custom operating systems might not.</li>
+<li>All processes using a database must be on <strong>the same host computer</strong>; WAL does not work over a network filesystem.</li>
+<li>Transactions that involve changes against multiple <a href="http://devdoc.net/database/sqlite-3.0.7.2/lang_attach.html" target="_blank" rel="noopener">ATTACHed</a> databases are atomic for each individual database, but are not atomic across all databases as a set.</li>
+<li>It is <strong>not possible to change the database page size after entering WAL mode</strong>, either on an empty database or by using <a href="http://devdoc.net/database/sqlite-3.0.7.2/lang_vacuum.html" target="_blank" rel="noopener">VACUUM</a> or by restoring from a backup using the <a href="http://devdoc.net/database/sqlite-3.0.7.2/backup.html" target="_blank" rel="noopener">backup API</a>. You must be in a rollback journal mode to change the page size.</li>
+<li>It is not possible to open <a href="http://devdoc.net/database/sqlite-3.0.7.2/wal.html#readonly" target="_blank" rel="noopener">read-only WAL databases</a>. The opening process must have write privileges for “<code>-shm</code>“<a href="http://devdoc.net/database/sqlite-3.0.7.2/fileformat2.html#walindexformat" target="_blank" rel="noopener">wal-index</a> shared memory file associated with the database, if that file exists, or else write access on the directory containing the database file if the “<code>-shm</code>“ file does not exist.</li>
+<li>WAL <strong>might be very slightly slower</strong> (perhaps <strong>1% or 2% slower</strong>) than the traditional rollback-journal approach in applications that <strong>do mostly reads and seldom write.</strong></li>
+<li>There is an additional quasi-persistent “<code>-wal</code>“ file and “<code>-shm</code>“ shared memory file associated with each database, which can make SQLite less appealing for use as an <a href="http://devdoc.net/database/sqlite-3.0.7.2/appfileformat.html" target="_blank" rel="noopener">application file-format</a>.</li>
+<li>There is the <strong>extra operation of <a href="http://devdoc.net/database/sqlite-3.0.7.2/wal.html#ckpt" target="_blank" rel="noopener">checkpointing</a></strong> which, though automatic by default, is still something that application developers need to be mindful of.</li>
+<li><strong>WAL works best with smaller transactions</strong>. <strong>WAL does not work well for very large transactions. For transactions larger than about 100 megabytes, traditional rollback journal modes will likely be faster</strong>. For transactions in excess of a gigabyte, WAL mode may fail with an I/O or disk-full error. It is recommended that one of the rollback journal modes be used for transactions larger than a few dozen megabytes.</li>
+</ol>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><blockquote>
+<p><a href="https://www.cnblogs.com/cchust/p/4754619.html" target="_blank" rel="noopener">https://www.cnblogs.com/cchust/p/4754619.html</a></p>
+</blockquote>
+<p>WAL不会再事务结束的时候将脏页刷盘，而是将事务产生的日志刷盘（.wal, .shm文件），【.wal记录修改页面的日志文件，.shm记录日志索引文件】</p>
+<p>日志模式：</p>
+<p>​    日志主要记录的是变更前的数据内容，写入的时候直接将db刷盘，成功后删除日志。</p>
+<p>WAL模式：</p>
+<p>​    将日志记录刷盘（不直接写db），在合适的检查点将日志的新页覆盖db文件的老页。</p>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><p>journal_mode</p>
+<p>journal_size_limit</p>
+<p>journal_size_limit</p>
+<p>wal_autocheckpoint</p>
+<p>synchronous</p>
+<p>cache_size</p>
+<p>default_cache_size</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

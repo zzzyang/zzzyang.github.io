@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="心升明月-李健">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        vmware下ubuntu通过windows代理上网 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 飞鸟归山林 落日入东海................... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>zzzyang</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VMware使用windows代理上网"><span class="toc-text">VMware使用windows代理上网</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 飞鸟归山林 落日入东海................... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        vmware下ubuntu通过windows代理上网
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-01-05 22:58:59</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#tools" title="tools">tools</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#ubuntu" title="ubuntu">ubuntu</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#vmware" title="vmware">vmware</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>通过battery historian，分析设备异常耗电问题。 但是在github开源的battery historian工具在2017年后就就没有再进行维护了，出现高Android版本无法解析的问题，在Android官网发现battery historian一直在进行更新，但是只能通过docker的方式来运行，不能通过开源代码配置环境了。想想比较坑。</p>
+<p>所以需求就由此而生，需要搭建docker来运行battery historian。</p>
+<p>搭建方法地址如下：</p>
+<p><a href="https://developer.android.com/studio/profile/battery-historian?hl=zh_cn" target="_blank" rel="noopener">https://developer.android.com/studio/profile/battery-historian?hl=zh_cn</a></p>
+<p>其中遇到的问题有如下几点：</p>
+<ol>
+<li>如果在window下面搭建的话，安装docker参考 <a href="https://www.runoob.com/docker/windows-docker-install.html" target="_blank" rel="noopener">https://www.runoob.com/docker/windows-docker-install.html</a> （<strong>通过此方法可以搭建成功，但是存在的问题就是在window下面开启了Hyper和VMware不兼容，无法同时使用VMware</strong>）</li>
+<li>当然在第1点中的问题也是可以得到解决的，搜到了如下链接介绍docker和VMware共存问题，但是还没有开始尝试，就已经屈服了，原因是突然发现在window下配置好docker以后，内存占用太高，开机后没有运行其他程序，电脑内存都已经使用了7.3G以上，太耗内存了（刚开始还以为是window10更新导致的内存占用问题，后面把Hyper-V关闭了后重启电脑，开机后内存占用正常，大概3.4G的样子）<a href="https://qymua.com/2019/08/22/浅谈Docker-for-Windows与VMware共存/" target="_blank" rel="noopener">https://qymua.com/2019/08/22/%E6%B5%85%E8%B0%88Docker-for-Windows%E4%B8%8EVMware%E5%85%B1%E5%AD%98/</a></li>
+</ol>
+<blockquote>
+<p>基于内存消耗过高(即使解决了Docker与VMware共存问题，同时使用的时候会导致更高的内存占用，电脑吃不消，毕竟笔记本才从8G升到16G)，以及本人还想继续使用VMware等原因，所以放弃了直接在windows下搭建环境的选择，决定关闭Hyper-V.</p>
+</blockquote>
+<ol start="3">
+<li>所以剩下的选择就是在VMware虚拟机中搭建环境了，此时遇到的问题是如果让虚拟机通过windows的代理上网。</li>
+</ol>
+<h1 id="VMware使用windows代理上网"><a href="#VMware使用windows代理上网" class="headerlink" title="VMware使用windows代理上网"></a>VMware使用windows代理上网</h1><ol>
+<li><p>在window的ss/ssr中允许来自局域网的连接，这里就不贴图了，在设置里面找一找就找到了。</p>
+</li>
+<li><p>查看windows的IP地址，通过命令窗口查询即可</p>
+</li>
+<li><p>在ubuntu中设置网络代理，如下（IP地址是windows的以太网或者WIFI的IP，端口是ss/ssr的端口）</p>
+<p><img src="1.jpg" alt=""></p>
+<p><strong>这个时候就可以通过浏览器访问外网了。</strong></p>
+</li>
+<li><p>此时通过apt-get install仍然无法外网，所以还需要接着配置，将代理设置到shell窗口上面。</p>
+<p>在网上搜了都说直接用https代理就可以了贴个链接，让linux的终端走代理的几种方法<a href="https://blog.fazero.me/2015/09/15/让终端走代理的几种方法/" target="_blank" rel="noopener">https://blog.fazero.me/2015/09/15/%E8%AE%A9%E7%BB%88%E7%AB%AF%E8%B5%B0%E4%BB%A3%E7%90%86%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</a> 但是本人的代理是需要输入用户名和密码的，所以需要输入的代理格式是</p>
+<p>export http_proxy=<a href="http://username:passwd@ip:port" target="_blank" rel="noopener">http://username:passwd@ip:port</a></p>
+<p>export https_proxy=<a href="https://username:passwd@ip:port" target="_blank" rel="noopener">https://username:passwd@ip:port</a></p>
+</li>
+</ol>
+<blockquote>
+<p>配置好了始终无法通过shell访问外网，最后终于发现了根本原因是：遇到了一个比较大的坑，折腾了好久，最后终于在网络上不知道哪个地址的地方看到了一句属于密码的适合特殊符号好用转义符号，所以也依葫芦画瓢，将输入用户名的特殊符号加入了转义【@ -&gt; %40】，配置好后采用curl -v <a href="http://www.google.comn能够正常访问google网站，所以算是配置好了。" target="_blank" rel="noopener">www.google.comn能够正常访问google网站，所以算是配置好了。</a></p>
+<p>为了方便在想走代理的时候才走代理，所以在.bashrc中配置了 快捷命令打开代理和关闭代理。</p>
+</blockquote>
+<ol start="5">
+<li>apt的代理方式同第4点一样的配置就好在第四点的链接中也有介绍。</li>
+</ol>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

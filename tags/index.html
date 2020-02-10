@@ -56,32 +56,32 @@
             <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
-                    <span>HOME</span>
+                    <span>主页</span>
                 </a>
             </li>
             <li  class=active >
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
-                    <span>TAGS</span>
+                    <span>标签</span>
                 </a>
             </li>
             <li >
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
-                    <span>ARCHIVES</span>
+                    <span>存档</span>
                 </a>
             </li>
             <li >
                 <a href="/about/">
                     <i class="iconfont icon-guanyu2"></i>
-                    <span>ABOUT</span>
+                    <span>关于</span>
                 </a>
             </li>
             
             <li>
                 <a id="search">
                     <i class="iconfont icon-sousuo1"></i>
-                    <span>SEARCH</span>
+                    <span>搜索</span>
                 </a>
             </li>
             
@@ -96,7 +96,7 @@
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
             <input id="search-input"/>
-            <span id="begin-search">search</span>
+            <span id="begin-search">搜索</span>
         </div>
         <div class="search-result-container" id="search-result-container">
 
@@ -117,11 +117,11 @@
     
     <a href="#Android" title="Android" rel="2">Android</a>
     
+    <a href="#alarm" title="alarm" rel="1">alarm</a>
+    
+    <a href="#android" title="android" rel="1">android</a>
+    
     <a href="#PMS" title="PMS" rel="1">PMS</a>
-    
-    <a href="#shell" title="shell" rel="1">shell</a>
-    
-    <a href="#tools" title="tools" rel="3">tools</a>
     
     <a href="#sqlite" title="sqlite" rel="1">sqlite</a>
     
@@ -131,11 +131,11 @@
     
     <a href="#linux" title="linux" rel="2">linux</a>
     
+    <a href="#shell" title="shell" rel="1">shell</a>
+    
+    <a href="#tools" title="tools" rel="3">tools</a>
+    
     <a href="#sublime" title="sublime" rel="1">sublime</a>
-    
-    <a href="#alarm" title="alarm" rel="1">alarm</a>
-    
-    <a href="#android" title="android" rel="1">android</a>
     
     <a href="#ubuntu" title="ubuntu" rel="1">ubuntu</a>
     
@@ -205,6 +205,48 @@
 </div>
 
 <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="alarm">
+                    <span class="tag-text">alarm</span>
+                </span>
+    
+    <!-- <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li> -->
+    <div class="post-preview">
+        <a href="/2019/09/22/Alarm简介/">
+            <h2 class="post-title">
+                Alarm简介
+            </h2>
+            
+        </a>
+        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    </div>
+    
+</div>
+
+<div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="android">
+                    <span class="tag-text">android</span>
+                </span>
+    
+    <!-- <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li> -->
+    <div class="post-preview">
+        <a href="/2019/09/22/Alarm简介/">
+            <h2 class="post-title">
+                Alarm简介
+            </h2>
+            
+        </a>
+        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    </div>
+    
+</div>
+
+<div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="PMS">
                     <span class="tag-text">PMS</span>
                 </span>
@@ -217,76 +259,6 @@
         <a href="/2019/09/22/PMS/">
             <h2 class="post-title">
                 PMS
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-    </div>
-    
-</div>
-
-<div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="shell">
-                    <span class="tag-text">shell</span>
-                </span>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/2020/02/10/shell语法记录/">
-            <h2 class="post-title">
-                shell语法记录
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-    </div>
-    
-</div>
-
-<div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="tools">
-                    <span class="tag-text">tools</span>
-                </span>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/2020/02/10/shell语法记录/">
-            <h2 class="post-title">
-                shell语法记录
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-    </div>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/2019/12/08/sublime配置C语言环境过程遇到的问题记录/">
-            <h2 class="post-title">
-                sublime配置C语言环境过程遇到的问题记录
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-    </div>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/2020/01/05/vmware下ubuntu通过windows代理上网/">
-            <h2 class="post-title">
-                vmware下ubuntu通过windows代理上网
             </h2>
             
         </a>
@@ -394,9 +366,44 @@
 </div>
 
 <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="sublime">
-                    <span class="tag-text">sublime</span>
+                <span class="fa fa-tag listing-seperator" id="shell">
+                    <span class="tag-text">shell</span>
                 </span>
+    
+    <!-- <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li> -->
+    <div class="post-preview">
+        <a href="/2020/02/10/shell语法记录/">
+            <h2 class="post-title">
+                shell语法记录
+            </h2>
+            
+        </a>
+        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    </div>
+    
+</div>
+
+<div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="tools">
+                    <span class="tag-text">tools</span>
+                </span>
+    
+    <!-- <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li> -->
+    <div class="post-preview">
+        <a href="/2020/02/10/shell语法记录/">
+            <h2 class="post-title">
+                shell语法记录
+            </h2>
+            
+        </a>
+        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    </div>
     
     <!-- <li class="listing-item">
     <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
@@ -412,21 +419,14 @@
         <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
     </div>
     
-</div>
-
-<div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="alarm">
-                    <span class="tag-text">alarm</span>
-                </span>
-    
     <!-- <li class="listing-item">
     <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
     <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
     </li> -->
     <div class="post-preview">
-        <a href="/2019/09/22/Alarm简介/">
+        <a href="/2020/01/05/vmware下ubuntu通过windows代理上网/">
             <h2 class="post-title">
-                Alarm简介
+                vmware下ubuntu通过windows代理上网
             </h2>
             
         </a>
@@ -436,8 +436,8 @@
 </div>
 
 <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="android">
-                    <span class="tag-text">android</span>
+                <span class="fa fa-tag listing-seperator" id="sublime">
+                    <span class="tag-text">sublime</span>
                 </span>
     
     <!-- <li class="listing-item">
@@ -445,9 +445,9 @@
     <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
     </li> -->
     <div class="post-preview">
-        <a href="/2019/09/22/Alarm简介/">
+        <a href="/2019/12/08/sublime配置C语言环境过程遇到的问题记录/">
             <h2 class="post-title">
-                Alarm简介
+                sublime配置C语言环境过程遇到的问题记录
             </h2>
             
         </a>

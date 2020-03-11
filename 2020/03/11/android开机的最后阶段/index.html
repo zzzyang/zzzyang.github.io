@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="心升明月-李健">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        android开机的最后阶段 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 飞鸟归山林 落日入东海................... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>zzzyang</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#activityIdleInternalLocked-gt-finishUserUnlocking"><span class="toc-text">activityIdleInternalLocked -&gt; finishUserUnlocking</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#finishUserUnlocking-gt-发送ACTION-BOOT-COMPLETED广播"><span class="toc-text">finishUserUnlocking -&gt; 发送ACTION_BOOT_COMPLETED广播</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Direct-Boot-Mode"><span class="toc-text">Direct Boot Mode</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 飞鸟归山林 落日入东海................... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        android开机的最后阶段
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-03-11 00:50:31</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#android" title="android">android</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#boot" title="boot">boot</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="activityIdleInternalLocked-gt-finishUserUnlocking"><a href="#activityIdleInternalLocked-gt-finishUserUnlocking" class="headerlink" title="activityIdleInternalLocked -&gt; finishUserUnlocking"></a>activityIdleInternalLocked -&gt; finishUserUnlocking</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">activityIdleInternalLocked(ASS)</span><br><span class="line">  checkFinishBootingLocked(ASS)</span><br><span class="line">  	mService.postFinishBooting(ATMS)</span><br><span class="line">  	  AMS.finishBooting(AMS)</span><br><span class="line">  	    mUserController.sendBootCompleted(AMS)</span><br><span class="line">  	    	finishUserBoot(UC)</span><br><span class="line">  	    	  发送ACTION_LOCKED_BOOT_COMPLETED广播(此时设备仍然locked)设备在Dirct boot mode模式</span><br><span class="line">  	    	  maybeUnlockUser(UC)</span><br><span class="line">  	    	  	unlockUserCleared</span><br><span class="line">  	    	  	  //unlock user storage</span><br><span class="line">  	    	  	  finishUserUnlocking</span><br></pre></td></tr></table></figure>
+<h2 id="finishUserUnlocking-gt-发送ACTION-BOOT-COMPLETED广播"><a href="#finishUserUnlocking-gt-发送ACTION-BOOT-COMPLETED广播" class="headerlink" title="finishUserUnlocking -&gt; 发送ACTION_BOOT_COMPLETED广播"></a>finishUserUnlocking -&gt; 发送ACTION_BOOT_COMPLETED广播</h2><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"></span><br><span class="line">- Step from &#123;@link UserState#STATE_RUNNING_LOCKED&#125; to</span><br><span class="line">   &#123;@link UserState#STATE_RUNNING_UNLOCKING&#125;.</span><br><span class="line">       */</span><br><span class="line">finishUserUnlocking (UC)</span><br><span class="line">  uss.mUnlockProgress.start();</span><br><span class="line">  uss.mUnlockProgress.setProgress(5,</span><br><span class="line">      mInjector.getContext().getString(R.string.android_start_title));</span><br><span class="line">  //通知unlocking进度</span><br><span class="line">  uss.mUnlockProgress.setProgress(20);</span><br><span class="line">  mHandler.obtainMessage(SYSTEM_USER_UNLOCK_MSG, userId, 0, uss)</span><br><span class="line">         .sendToTarget();//发送SYSTEM_USER_UNLOCK_MSG    </span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">处理SYSTEM_USER_UNLOCK_MSG</span><br><span class="line">mInjector.getSystemServiceManager().unlockUser(userId);//unlockUser for systemservices</span><br><span class="line">  finishUserUnlocked</span><br><span class="line">    mInjector.getUserManagerInternal().setUserState(userId, uss.state);</span><br><span class="line">    uss.mUnlockProgress.finish();</span><br><span class="line">    final Intent unlockedIntent = new Intent(Intent.ACTION_USER_UNLOCKED);//发送user_unlocked广播，之后phone is starting界面会很快消失。</span><br><span class="line">    finishUserUnlockedCompleted</span><br><span class="line">    	发送ACTION_BOOT_COMPLETED广播</span><br></pre></td></tr></table></figure>
+<h2 id="Direct-Boot-Mode"><a href="#Direct-Boot-Mode" class="headerlink" title="Direct Boot Mode"></a>Direct Boot Mode</h2><p><a href="https://developer.android.com/training/articles/direct-boot?hl=zh-cn" target="_blank" rel="noopener">https://developer.android.com/training/articles/direct-boot?hl=zh-cn</a></p>
+<p>指的一种设备已经开机，但是还未解锁的状态。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
